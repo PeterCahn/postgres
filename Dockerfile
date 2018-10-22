@@ -5,8 +5,8 @@ FROM postgres:10
 
 COPY libjvm.so /usr/lib/libjvm.so
 
-RUN apt-get -y update && \
-	apt-get install -y wget unzip && \
+RUN apt-get update && \
+	apt-get install -y wget unzip build-essential && \
 	wget https://github.com/atris/JDBC_FDW/archive/master.zip && \
 	unzip master.zip && \	
 	cd JDBC_FDW-master/ && \
