@@ -6,10 +6,11 @@ FROM postgres:10
 COPY libjvm.so /usr/lib/libjvm.so
 
 RUN apt-get update && \
-	apt-get install -y wget unzip && \
-	build-essential && \
-	postgresql-server-dev-10 && \
-	#python-dev postgres python-psycopg2 libpq-dev && \
+		apt-get install -y wget unzip \
+		build-essential \
+		postgresql-server-dev-10 \
+		#python-dev postgres libpq-dev \
+		python-psycopg2 && \
 	wget https://github.com/atris/JDBC_FDW/archive/master.zip && \
 	unzip master.zip && \	
 	cd JDBC_FDW-master/ && \
